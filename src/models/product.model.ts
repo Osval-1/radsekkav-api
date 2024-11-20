@@ -1,28 +1,35 @@
-import mongoose from "mongoose"
+import mongoose from "mongoose";
 
 const productSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
   },
-  email: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-  dateOfBirth: { type: String, required: true },
-  placeOfResidence: {
-    type: String,
-    required: true,
-  },
-  mother: {
-    type: String,
-  },
-  father: {
-    type: String,
-  },
-  phoneNumber: {
+  price: {
     type: Number,
+    required: true,
+  },
+  short_description: { type: String, required: true },
+  is_new: {
+    type: Boolean,
+    required: true,
+  },
+  is_hot: {
+    type: Boolean,
+  },
+  is_sold: {
+    type: Boolean,
+  },
+  large_images: {
+    type: Array,
+    required: true,
+  },
+  small_images: {
+    type: Array,
+    required: true,
+  },
+  categories: {
+    type: Array,
     required: true,
   },
 });

@@ -4,7 +4,7 @@ import { initialParents } from "./data";
 import {Response,Request} from "express"
 
 
-export const populateDB = async (req:Request, res:Response) => {
+export const populateDB = async () => {
   try {
     const data = await Member.find({});
     if (data[0]) {

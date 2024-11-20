@@ -1,8 +1,9 @@
 import express,{Application} from "express"
 import mongoose from "mongoose";
 import dotenv from "dotenv"
-import cors from "cors"
+import cors, { CorsOptions } from "cors"
 import auth from "./src/routes/auth.route"
+import genealogy from "./src/routes/genealogy.route"
 
 dotenv.config()
 
@@ -10,10 +11,10 @@ dotenv.config()
 // const genealogyRoutes = require("./src/routes/genealogy.route");
 
 const app:Application = express();
-const corsOptions = {
+const corsOptions:CorsOptions = {
   origin: "*",
   credentials: true,
-  optionSuccessStatus: 200,
+  optionsSuccessStatus: 200,
 };
 mongoose.connect(process.env.MONGOURL as string);
 mongoose.connection.on("connected", () => {
@@ -26,7 +27,7 @@ mongoose.connection.on("error", (err) => {
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use("/auth", auth);
-// app.use("/genealogy", genealogyRoutes);
+app.use("/genealogy", genealogy);
 
 
 app.listen(process.env.PORT, () => {

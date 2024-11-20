@@ -17,7 +17,8 @@ const userSchema = new mongoose.Schema({
   referal:{
     type:String,
     required:true,
-  },affiliate:{
+  }
+  ,affiliate:{
     type:String,
     required:true
   }
